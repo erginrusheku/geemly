@@ -3,4 +3,7 @@ This application is going to be the supermarket management system.
 
 Features:
 
-Sector
+1.Sectors
+2.Products
+3.Employee
+
