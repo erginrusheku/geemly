@@ -41,8 +41,6 @@ public class EmployeeService {
             existingEmployee.setSectorId(employee.getSectorId());
             existingEmployee.setJobPosition(employee.getJobPosition());
             existingEmployee.setSalary(employee.getSalary());
-
-
         }
         return employeeRepository.save(employee);
     }
