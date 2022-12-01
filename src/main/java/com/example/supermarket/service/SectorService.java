@@ -40,7 +40,6 @@ public class SectorService {
         }
         return sectorRepository.save(sector);
     }
-
     public void deleteById(String id) {
         sectorRepository.deleteById(id);
     }
