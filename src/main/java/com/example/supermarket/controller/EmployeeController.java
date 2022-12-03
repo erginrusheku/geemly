@@ -20,18 +20,17 @@ public class EmployeeController {
 
     @PostMapping
     public ResponseEntity<Employee> persist(@RequestBody Employee employee) {
+
+        if (employee.getAge() >= 18 && employee.getAge() <= 65) {
+
+        } else
+            return ResponseEntity.status(404).build();
+
         if (employee.getSalary() < 0) {
             return ResponseEntity.status(404).build();
         }
 
-
-        if (employee.getAge() <= 18 && employee.getAge() >= 65) {
-            return ResponseEntity.status(404).build();
-        }
-
-
         return ResponseEntity.ok(employeeService.persist(employee));
-
     }
 
     @GetMapping("/{id}")
@@ -41,14 +40,16 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> update(@PathVariable String id, @RequestBody Employee employee) {
+
+        if (employee.getAge() >= 18 && employee.getAge() <= 65) {
+
+        } else
+            return ResponseEntity.status(404).build();
+
         if (employee.getSalary() < 0) {
             return ResponseEntity.status(404).build();
         }
 
-
-        if (employee.getAge() <= 18 && employee.getAge() >= 65) {
-            return ResponseEntity.status(404).build();
-        }
         return ResponseEntity.ok(employeeService.update(id, employee));
     }
 
@@ -57,6 +58,4 @@ public class EmployeeController {
         employeeService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
