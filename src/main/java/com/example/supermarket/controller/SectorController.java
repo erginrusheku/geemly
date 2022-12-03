@@ -1,6 +1,5 @@
 package com.example.supermarket.controller;
 
-
 import com.example.supermarket.model.Sector;
 import com.example.supermarket.service.SectorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +9,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/sectors")
 public class SectorController {
-
     @Autowired
     SectorService sectorService;
-
 
     @GetMapping
     public ResponseEntity getAll() {
@@ -36,9 +33,8 @@ public class SectorController {
     }
 
     @DeleteMapping("{/id}")
-    public ResponseEntity<String> delete(@PathVariable("id") String id) {
+    public ResponseEntity<String> deleteById(@PathVariable("id") String id) {
         sectorService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
 }

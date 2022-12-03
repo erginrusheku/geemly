@@ -29,7 +29,6 @@ public class EmployeeService {
         }
         return null;
     }
-
     public Employee update(String id, Employee employee) {
         Optional<Employee> employeeOptional = employeeRepository.findById(id);
         if (employeeOptional.isPresent()) {
@@ -44,7 +43,6 @@ public class EmployeeService {
         }
         return employeeRepository.save(employee);
     }
-
     public void deleteById(String id) {
         employeeRepository.deleteById(id);
     }

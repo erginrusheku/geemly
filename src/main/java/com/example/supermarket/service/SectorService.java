@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class SectorService {
-
     @Autowired
     SectorRepository sectorRepository;
 
@@ -29,7 +28,6 @@ public class SectorService {
         }
         return null;
     }
-
     public Sector update(String id, Sector sector) {
         Optional<Sector> sectorOptional = sectorRepository.findById(id);
         if (sectorOptional.isPresent()) {

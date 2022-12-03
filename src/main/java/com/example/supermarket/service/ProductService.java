@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
     @Autowired
     ProductRepository productRepository;
 
@@ -29,7 +28,6 @@ public class ProductService {
         }
         return null;
     }
-
     public Product update(String id, Product product) {
         Optional<Product> productOptional = productRepository.findById(id);
         if (productOptional.isPresent()) {
@@ -37,7 +35,6 @@ public class ProductService {
             existingProduct.setName(product.getName());
             existingProduct.setDescription(product.getDescription());
             existingProduct.setPrice(product.getPrice());
-            //existingProduct.setImage(product.getImage());
             existingProduct.setSectorId(product.getSectorId());
             existingProduct.setExpirationDate(product.getExpirationDate());
             existingProduct.setProductionDate(product.getProductionDate());
@@ -45,8 +42,6 @@ public class ProductService {
         }
         return productRepository.save(product);
     }
-
-
     public void deleteById(String id) {
         productRepository.deleteById(id);
     }
